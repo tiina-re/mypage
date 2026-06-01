@@ -68,13 +68,12 @@ export default function App() {
 
       <div className="portfolio-container">
         <header className="hero-section">
-          <p className="hero-eyebrow">Portfolio</p>
+          <p className="hero-eyebrow">Digital resume</p>
           <h1>Tiina Reintop</h1>
           <p className="hero-description">
-            Aspiring web developer with a foundation in front-end development and recently earned certifications.
-            I know enough to build things, enough to break things and enough to know how much I still have to learn.
-            I am <span className="highlight-text">looking for an internship position</span> where I can contribute to real projects, grow as a developer,
-            and learn from experienced teams. Open to any tech stack and always eager to learn.
+            Aspiring web developer based in Tartu, Estonia with a foundation in front-end development and recently earned certifications.
+            I am <span className="highlight-text">looking for an internship position</span> where I can contribute to real projects,
+            and learn from developers who have already solved the problems I'm about to discover. Adaptable, motivated, open to any tech stack.
           </p>
         </header>
 
