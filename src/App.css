@@ -338,6 +338,13 @@
   transform: translateY(-2px);
 }
 
+button.contact-link {
+  background-color: transparent;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
 .link-icon {
   flex: 0 0 auto;
   font-size: 1.16rem;

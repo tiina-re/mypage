@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa';
+import { FaCheck, FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa';
 import { projectsData } from './projectsData';
 import './App.css';
 
@@ -32,6 +32,40 @@ const certsData = [
     tags: ['HTML5 / CSS3', 'JavaScript', 'PHP', 'MySQL', 'UI/UX Fundamentals', 'Prototyping', 'Agile / Scrum', 'Project Management'],
   },
 ];
+
+// The address is assembled only on click so it never appears in the page source for bots to scrape.
+const emailParts = ['tiina.reintop', 'gmail.com'];
+
+function CopyEmailButton() {
+  const [copied, setCopied] = useState(false);
+
+  useEffect(() => {
+    if (!copied) {
+      return undefined;
+    }
+
+    const timeoutId = setTimeout(() => setCopied(false), 2000);
+    return () => clearTimeout(timeoutId);
+  }, [copied]);
+
+  const handleClick = async () => {
+    const email = emailParts.join('@');
+
+    try {
+      await navigator.clipboard.writeText(email);
+      setCopied(true);
+    } catch {
+      window.location.href = `mailto:${email}`;
+    }
+  };
+
+  return (
+    <button type="button" className="contact-link" onClick={handleClick}>
+      {copied ? <FaCheck className="link-icon" /> : <FaEnvelope className="link-icon" />}
+      <span aria-live="polite">{copied ? 'Email copied!' : 'Copy email'}</span>
+    </button>
+  );
+}
 
 export default function App() {
   const [activeCertImage, setActiveCertImage] = useState(null);
@@ -97,9 +131,7 @@ export default function App() {
             <a href="https://www.linkedin.com/in/tiina-reintop/" target="_blank" rel="noopener noreferrer" className="contact-link">
               <FaLinkedin className="link-icon" /> LinkedIn
             </a>
-            <a href="mailto:tiina.reintop@gmail.com" className="contact-link">
-              <FaEnvelope className="link-icon" /> Email
-            </a>
+            <CopyEmailButton />
           </div>
         </header>
 
@@ -171,9 +203,7 @@ export default function App() {
           <h2 id="contact-title" className="section-title">Get In Touch</h2>
           <p>Let's collaborate. Feel free to reach out via email or connect on social platforms.</p>
           <div className="contact-links">
-            <a href="mailto:tiina.reintop@gmail.com" className="contact-link">
-              <FaEnvelope className="link-icon" /> Email
-            </a>
+            <CopyEmailButton />
             <a href="https://www.linkedin.com/in/tiina-reintop/" target="_blank" rel="noopener noreferrer" className="contact-link">
               <FaLinkedin className="link-icon" /> LinkedIn
             </a>
