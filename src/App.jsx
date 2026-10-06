@@ -5,13 +5,22 @@ import './App.css';
 
 const certsData = [
   {
+    id: 'valiit-software-development',
+    title: 'Vali Tarkvaraarendus!',
+    institution: 'BCS Koolitus - Vali IT! Software Developer Reskilling Program',
+    date: 'Issued October 2026 (240 Academic Hours)',
+    imgSrc: '/cert-valiit-2026.png',
+    alt: 'Vali IT! software development program certificate',
+    tags: ['Java', 'Spring Boot', 'PostgreSQL', 'RESTful API', 'Vue.js', 'JavaScript', 'Swagger / OpenAPI', 'Unit Testing', 'Git', 'Jira / Confluence', 'Agile MVP', 'AI-Assisted Development (Claude Code)'],
+  },
+  {
     id: 'codecademy-front-end-engineer',
     title: 'Front-End Engineer',
     institution: 'Codecademy - Professional Certification',
     date: 'Issued April 2026',
     imgSrc: '/cert-codecademy-2026.png',
     alt: 'Codecademy Front-End Engineer certificate',
-    tags: ['React', 'Redux', 'JavaScript (ES6+)', 'Asynchronous JS', 'Web Accessibility (a11y)', 'Responsive Design', 'Git/GitHub', 'TDD (Jest)'],
+    tags: ['React', 'Redux Toolkit', 'React Router', 'JavaScript (ES6+)', 'Asynchronous JS', 'REST APIs', 'Node.js / Express', 'Web Accessibility (a11y)', 'Responsive Design', 'Git/GitHub', 'TDD (Jest, Vitest)', 'React Testing Library'],
   },
   {
     id: 'bcs-web-development-program',
@@ -71,10 +80,27 @@ export default function App() {
           <p className="hero-eyebrow">Digital resume</p>
           <h1>Tiina Reintop</h1>
           <p className="hero-description">
-            Aspiring web developer based in Tartu, Estonia with a foundation in front-end development and recently earned certifications.
-            I am <span className="highlight-text">looking for an internship position</span> where I can contribute to real projects,
-            and learn from developers who have already solved the problems I'm about to discover. Adaptable, motivated, open to any tech stack.
+            Junior software developer with a background in UX-focused design and digital marketing.
+            I recently completed the Vali IT! program, focusing on back-end development with Java and Spring Boot.
+            I am <span className="highlight-text">looking for an internship or junior developer role</span> in front-end, back-end
+            or full-stack development.
           </p>
+          <ul className="hero-facts">
+            <li>Available immediately</li>
+            <li>Estonian, English</li>
+            <li>On-site, hybrid or remote</li>
+          </ul>
+          <div className="contact-links hero-links">
+            <a href="https://github.com/tiina-re" target="_blank" rel="noopener noreferrer" className="contact-link">
+              <FaGithub className="link-icon" /> GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/tiina-reintop/" target="_blank" rel="noopener noreferrer" className="contact-link">
+              <FaLinkedin className="link-icon" /> LinkedIn
+            </a>
+            <a href="mailto:tiina.reintop@gmail.com" className="contact-link">
+              <FaEnvelope className="link-icon" /> Email
+            </a>
+          </div>
         </header>
 
         <hr className="section-divider" />
@@ -88,6 +114,16 @@ export default function App() {
                   <h3>{project.title}</h3>
                   <p className="project-subtitle">{project.subtitle}</p>
                   <p className="project-description">{project.description}</p>
+                  {project.contribution && (
+                    <p className="project-contribution">
+                      <span className="project-contribution-label">My part:</span> {project.contribution}
+                    </p>
+                  )}
+                  {project.link && (
+                    <a href={project.link} target="_blank" rel="noopener noreferrer" className="project-link">
+                      <FaGithub className="link-icon" /> View on GitHub
+                    </a>
+                  )}
                 </div>
                 <div className="tags">
                   {project.tags.map((tag) => (

@@ -10,6 +10,12 @@
   position: relative;
 }
 
+.portfolio-wrapper h1,
+.portfolio-wrapper h2,
+.portfolio-wrapper h3 {
+  font-family: "Plus Jakarta Sans", Inter, ui-sans-serif, system-ui, sans-serif;
+}
+
 .portfolio-container {
   max-width: 1000px;
   margin: 0 auto;
@@ -38,7 +44,7 @@
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  font-size: clamp(2.5rem, 8vw, 4.8rem);
+  font-size: clamp(2.5rem, 7vw, 4rem);
   font-weight: 800;
   letter-spacing: 0;
   line-height: 0.95;
@@ -51,6 +57,29 @@
   font-size: 1.15rem;
   line-height: 1.8;
   padding-top: 12px;
+}
+
+.hero-facts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 22px;
+  margin: 24px 0 0;
+  padding: 0;
+  color: #8b94a7;
+  font-size: 0.92rem;
+  list-style: none;
+}
+
+.hero-facts li + li::before {
+  content: '·';
+  margin-right: 11px;
+  margin-left: -11px;
+  color: #5eead4;
+}
+
+.hero-links {
+  margin-top: 28px;
 }
 
 .highlight-text,
@@ -93,11 +122,30 @@
 }
 
 .projects-grid {
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.projects-grid > .project-card:first-child {
+  grid-column: 1 / -1;
 }
 
 .certs-grid {
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.certs-grid > .cert-card:first-child {
+  grid-column: 1 / -1;
+  flex-direction: row;
+  align-items: center;
+  gap: 32px;
+}
+
+.certs-grid > .cert-card:first-child > div {
+  flex: 1 1 0;
+}
+
+.certs-grid > .cert-card:first-child > .cert-preview-button {
+  flex: 0 0 45%;
 }
 
 .project-card,
@@ -144,6 +192,37 @@
   color: #a8b3c7;
   font-size: 0.96rem;
   line-height: 1.65;
+}
+
+.project-contribution {
+  margin: -8px 0 22px;
+  padding-left: 12px;
+  border-left: 2px solid rgba(45, 212, 191, 0.5);
+  color: #cbd5e1;
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.project-contribution-label {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: -8px 0 4px;
+  color: #dbe4f0;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.project-link:hover,
+.project-link:focus-visible {
+  color: #67e8f9;
 }
 
 .tags {
@@ -199,6 +278,9 @@
 .cert-image {
   display: block;
   width: 100%;
+  aspect-ratio: 10 / 7;
+  object-fit: cover;
+  object-position: top;
   border: 1px solid #2a2a31;
   border-radius: 8px;
   transition:
@@ -323,6 +405,21 @@ button:focus-visible {
     padding: 0 16px;
   }
 
+  .projects-grid,
+  .certs-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .certs-grid > .cert-card:first-child {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 22px;
+  }
+
+  .certs-grid > .cert-card:first-child > .cert-preview-button {
+    flex: none;
+  }
+
   .hero-section {
     padding-top: 64px;
     padding-bottom: 24px;
@@ -352,12 +449,7 @@ button:focus-visible {
   }
 
   .contact-links {
-    align-items: stretch;
-    flex-direction: column;
-  }
-
-  .contact-link {
-    justify-content: center;
+    gap: 10px;
   }
 
   .cursor-glow {
