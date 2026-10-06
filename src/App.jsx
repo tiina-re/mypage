@@ -11,7 +11,7 @@ const certsData = [
     date: 'Issued October 2026 (240 Academic Hours)',
     imgSrc: '/cert-valiit-2026.png',
     alt: 'Vali IT! software development program certificate',
-    tags: ['Java', 'Spring Boot', 'PostgreSQL', 'RESTful API', 'Vue.js', 'JavaScript', 'Swagger / OpenAPI', 'Unit Testing', 'Git', 'Jira / Confluence', 'Agile MVP', 'AI-Assisted Development (Claude Code)'],
+    tags: ['Java', 'Spring Boot', 'PostgreSQL / SQL', 'Database Design (ERD)', 'RESTful API', 'Vue.js', 'JavaScript', 'Swagger / OpenAPI', 'Unit Testing', 'Git', 'Jira / Confluence', 'Agile MVP', 'AI-Assisted Development (Claude Code)'],
   },
   {
     id: 'codecademy-front-end-engineer',
